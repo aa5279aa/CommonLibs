@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="NativeInsertDialog" parent="@android:style/Theme.Holo.NoActionBar">
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:background">@color/color_transparent</item>
+        <item name="android:windowBackground">@color/color_transparent</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:backgroundDimAmount">0.75</item>
+    </style>
+
+    <!--字体样式库-->
+    <style name="text_12_999999">
+        <item name="android:textColor">#999999</item>
+        <item name="android:textSize">@dimen/size12</item>
+    </style>
+
+    <style name="text_14_333333">
+        <item name="android:textColor">#333333</item>
+        <item name="android:textSize">@dimen/size14</item>
+    </style>
+
+    <style name="text_12_333333">
+        <item name="android:textColor">#333333</item>
+        <item name="android:textSize">@dimen/size12</item>
+    </style>
+
+    <style name="text_18_999999">
+        <item name="android:textColor">#999999</item>
+        <item name="android:textSize">@dimen/size18</item>
+    </style>
+
+    <style name="text_16_333333">
+        <item name="android:textColor">#333333</item>
+        <item name="android:textSize">@dimen/size16</item>
+    </style>
+
+    <style name="text_16_999999">
+        <item name="android:textColor">#999999</item>
+        <item name="android:textSize">@dimen/size16</item>
+    </style>
+
+    <style name="text_18_333333">
+        <item name="android:textColor">#333333</item>
+        <item name="android:textSize">@dimen/size18</item>
+    </style>
+
+    <style name="text_15_666666">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">#666666</item>
+    </style>
+
+    <style name="text_17_017afe">
+        <item name="android:textSize">17sp</item>
+        <item name="android:textColor">#017afe</item>
+    </style>
+
+    <style name="text_15_000000">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">#000000</item>
+    </style>
+
+    <style name="text_14_ffffff">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#ffffff</item>
+    </style>
+
+    <style name="text_12_ffffff">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">#ffffff</item>
+    </style>
+    <style name="text_16_666666">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">#666666</item>
+    </style>
+
+
+</resources>

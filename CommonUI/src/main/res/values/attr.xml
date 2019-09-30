@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="CommonInfoBar">
+        <attr name="common_infobar_title_text" format="string" localization="suggested" />
+        <attr name="common_infobar_title_appearance" format="integer" />
+        <attr name="common_infobar_title_label_width" format="dimension" />
+        <attr name="common_infobar_title_gravity">
+            <enum name="center" value="0" />
+            <enum name="top" value="1" />
+            <enum name="bottom" value="2" />
+        </attr>
+
+        <attr name="common_infobar_value_text" format="string" localization="suggested" />
+        <attr name="common_infobar_value_appearance" format="integer" />
+        <attr name="common_infobar_value_gravity">
+            <enum name="center" value="0" />
+            <enum name="top" value="1" />
+            <enum name="bottom" value="2" />
+        </attr>
+
+        <attr name="common_infobar_hint_text" format="string" localization="suggested" />
+        <attr name="common_infobar_hint_appearance" format="integer" />
+
+        <attr name="common_infobar_hasArrow" format="boolean" />
+        <attr name="common_infobar_arrow_drawable" format="reference" />
+
+        <attr name="common_infobar_icon_drawable" format="reference" />
+        <attr name="common_infobar_icon_width" format="dimension" />
+        <attr name="common_infobar_icon_height" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="CommonTabGroupButton">
+        <attr name="common_tabbutton_is_match_font" format="boolean" />
+        <attr name="common_tabbutton_size" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="CommonTitleBar">
+        <attr name="common_title" format="string" />
+    </declare-styleable>
+
+</resources>

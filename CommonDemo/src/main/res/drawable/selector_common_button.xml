@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@drawable/rect_solid_dddddd" android:state_enabled="false" />
+    <item android:drawable="@drawable/rect_solid_4049a4" android:state_pressed="true" />
+    <item android:drawable="@drawable/rect_grad_5599fb" />
+
+</selector>

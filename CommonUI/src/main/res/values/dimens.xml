@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="upload_text_size">18dp</dimen>
+    <dimen name="upload_configure_title">15dp</dimen>
+    <dimen name="upload_item_margin_bottom">10dp</dimen>
+
+    <!--160dpi-->
+    <dimen name="size11">11sp</dimen>
+    <dimen name="size12">12sp</dimen>
+    <dimen name="size13">13sp</dimen>
+    <dimen name="size14">14sp</dimen>
+    <dimen name="size16">16sp</dimen>
+    <dimen name="size17">17sp</dimen>
+    <dimen name="size18">18sp</dimen>
+    <dimen name="size20">20sp</dimen>
+    <dimen name="size22">22sp</dimen>
+    <dimen name="size24">24sp</dimen>
+
+    <dimen name="line_hight_35">35dp</dimen>
+    <dimen name="line_hight_40">40dp</dimen>
+    <dimen name="line_hight_45">45dp</dimen>
+    <dimen name="line_hight_50">50dp</dimen>
+    <dimen name="space_800">800dp</dimen>
+    <dimen name="space_660">660dp</dimen>
+    <dimen name="space_600">600dp</dimen>
+    <dimen name="space_560">560dp</dimen>
+    <dimen name="space_500">500dp</dimen>
+    <dimen name="space_400">400dp</dimen>
+    <dimen name="space_300">300dp</dimen>
+    <dimen name="space_350">350dp</dimen>
+    <dimen name="space_450">450dp</dimen>
+    <dimen name="space_270">270dp</dimen>
+    <dimen name="space_240">240dp</dimen>
+    <dimen name="space_220">220dp</dimen>
+    <dimen name="space_200">200dp</dimen>
+    <dimen name="space_180">180dp</dimen>
+    <dimen name="space_145">145dp</dimen>
+    <dimen name="space_155">155dp</dimen>
+    <dimen name="space_150">150dp</dimen>
+    <dimen name="space_130">130dp</dimen>
+    <dimen name="space_135">135dp</dimen>
+    <dimen name="space_120">120dp</dimen>
+    <dimen name="space_110">110dp</dimen>
+    <dimen name="space_100">100dp</dimen>
+    <dimen name="space_90">90dp</dimen>
+    <dimen name="space_80">80dp</dimen>
+    <dimen name="space_70">70dp</dimen>
+    <dimen name="space_65">65dp</dimen>
+    <dimen name="space_60">60dp</dimen>
+    <dimen name="space_10">10dp</dimen>
+    <dimen name="space_12">12dp</dimen>
+    <dimen name="space_20">20dp</dimen>
+    <dimen name="space_25">25dp</dimen>
+    <dimen name="space_15">15dp</dimen>
+    <dimen name="space_35">35dp</dimen>
+    <dimen name="space_30">30dp</dimen>
+    <dimen name="space_40">40dp</dimen>
+    <dimen name="space_39">39dp</dimen>
+    <dimen name="space_45">45dp</dimen>
+    <dimen name="space_50">50dp</dimen>
+    <dimen name="space_49">49dp</dimen>
+    <dimen name="space_55">55dp</dimen>
+    <dimen name="space_5">5dp</dimen>
+    <dimen name="space_3">3dp</dimen>
+    <dimen name="space_1">1dp</dimen>
+    <dimen name="sub_5">-5dp</dimen>
+    <dimen name="sub_10">-10dp</dimen>
+    <dimen name="space_1.5">1.5dp</dimen>
+    <dimen name="space_8">8dp</dimen>
+    <dimen name="space_375">375dp</dimen>
+    <dimen name="space_750">750dp</dimen>
+    <dimen name="space_75">75dp</dimen>
+    <dimen name="space_820">820dp</dimen>
+    <dimen name="space_520">520dp</dimen>
+    <dimen name="space_960">960dp</dimen>
+
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="resource_width">1080px</dimen>
+    <dimen name="resource_height">634px</dimen>
+
+    <dimen name="resource_item_height">32pt</dimen>
+    <dimen name="resource_171">171pt</dimen>
+    <dimen name="resource_327">427pt</dimen>
+
+
+    <!--全能王引入-->
+    <dimen name="space_18">18dp</dimen>
+    <dimen name="space_2">2dp</dimen>
+    <dimen name="thumb_width">30dp</dimen>
+    <dimen name="thumb_height">30dp</dimen>
+    <dimen name="space_85">85dp</dimen>
+    <dimen name="space_bosch_30">0dp</dimen>
+    <dimen name="pt10">10dp</dimen>
+</resources>
