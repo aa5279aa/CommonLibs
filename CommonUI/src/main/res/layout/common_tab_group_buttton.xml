@@ -1,7 +1,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:background="@color/color_white"
+    android:background="#00ffffff"
     android:orientation="vertical">
 
     <LinearLayout
@@ -71,14 +71,14 @@
             android:layout_width="fill_parent"
             android:layout_height="3dp"
             android:layout_weight="1"
-            android:background="@color/color_tab_item_selected" />
+            android:background="@color/color_blue" />
 
         <View
             android:id="@+id/anim_view1"
             android:layout_width="fill_parent"
             android:layout_height="3dp"
             android:layout_weight="1"
-            android:background="@color/color_tab_item_selected"
+            android:background="@color/color_blue"
             android:visibility="invisible" />
 
         <View
@@ -86,7 +86,7 @@
             android:layout_width="fill_parent"
             android:layout_height="3dp"
             android:layout_weight="1"
-            android:background="@color/color_tab_item_selected"
+            android:background="@color/color_blue"
             android:visibility="gone" />
 
     </LinearLayout>

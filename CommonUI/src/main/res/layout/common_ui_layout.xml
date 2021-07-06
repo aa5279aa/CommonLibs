@@ -5,7 +5,7 @@
     android:background="#ffffff"
     android:orientation="vertical">
 
-    <com.common.ui.widget.CommonTitleBar
+    <com.common.ui.view.widget.CommonTitleBar
         android:id="@+id/title_view"
         android:layout_width="match_parent"
         android:layout_height="50dp" />
@@ -18,4 +18,13 @@
         android:gravity="center_horizontal"
         android:orientation="vertical" />
 
+    <com.common.ui.view.progress.CommonTextProgressbar
+        android:id="@+id/progress_bar"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="92dp"
+        android:layout_height="22dp"
+        android:layout_margin="10dp"
+        android:max="100"
+        android:progress="20"
+        android:progressDrawable="@drawable/common_layer_list_progress_drawable" />
 </LinearLayout>
