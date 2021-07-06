@@ -2,12 +2,13 @@ package com.common.ui.demoshow.fragment;
 
 import android.content.res.ColorStateList;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.view.View;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import com.common.ui.R;
-import com.common.ui.widget.CommonButton;
+import com.common.ui.view.widget.CommonButton;
 
 /**
  * Created by lxl on 2017/5/25.
@@ -34,7 +35,7 @@ public class CommonUIButtonFragment extends CommonUIBaseFragment {
         CommonButton button = new CommonButton(getContext());
         button.setText("button-点击变色");
         CommonButton.Model model = new CommonButton.Model();
-        model.resourceBG = R.drawable.common_button_selector;
+        model.resourceBG = R.drawable.original_button_selector;
 
         int[] enalbe = new int[]{android.R.attr.state_enabled};
         int[] colors = new int[]{getContext().getResources().getColor(R.color.color_333333), getContext().getResources().getColor(R.color.color_666666)};
@@ -51,7 +52,7 @@ public class CommonUIButtonFragment extends CommonUIBaseFragment {
         CommonButton button = new CommonButton(getContext());
         button.setText("button-固定色");
         CommonButton.Model model = new CommonButton.Model();
-        model.resourceBG = R.drawable.common_button_selector;
+        model.resourceBG = R.drawable.original_button_selector;
         model.color = getContext().getResources().getColor(R.color.color_333333);
         button.bindData(model);
         mContainer.addView(button);

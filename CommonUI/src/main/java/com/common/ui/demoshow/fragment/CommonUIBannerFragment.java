@@ -1,12 +1,13 @@
 package com.common.ui.demoshow.fragment;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.view.View;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import com.common.ui.R;
-import com.common.ui.bar.CommonInfoBar;
+import com.common.ui.view.bar.CommonInfoBar;
 
 /**
  * Created by lxl on 2017/5/25.

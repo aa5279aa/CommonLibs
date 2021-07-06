@@ -1,16 +1,17 @@
 package com.common.ui.demoshow;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+
 import com.common.ui.R;
-import com.common.ui.bar.CommonInfoBar;
 import com.common.ui.demoshow.fragment.CommonUIBannerFragment;
 import com.common.ui.demoshow.fragment.CommonUIButtonFragment;
 import com.common.ui.demoshow.fragment.CommonUIDialogFragment;
+import com.common.ui.view.bar.CommonInfoBar;
 import com.common.util.DeviceUtil;
 
 /**

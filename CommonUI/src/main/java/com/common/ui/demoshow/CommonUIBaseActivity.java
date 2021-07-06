@@ -2,13 +2,14 @@ package com.common.ui.demoshow;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.fragment.app.FragmentActivity;
+
 import com.common.ui.R;
-import com.common.ui.widget.CommonTitleBar;
+import com.common.ui.view.widget.CommonTitleBar;
 
 public abstract class CommonUIBaseActivity extends FragmentActivity {
 
