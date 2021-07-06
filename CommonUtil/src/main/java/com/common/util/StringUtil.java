@@ -1,8 +1,11 @@
 package com.common.util;
 
-
+import android.content.Context;
 import android.text.Html;
+import android.text.SpannableString;
+import android.text.Spanned;
 import android.text.TextUtils;
+import android.text.style.TextAppearanceSpan;
 import android.util.Log;
 
 import java.io.PrintWriter;
@@ -10,17 +13,35 @@ import java.io.StringWriter;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
 /**
- * @author lxl
- * 负责字符串处理
+ * @author lxl 负责字符串处理
  */
 public final class StringUtil {
 
     public static final String EMPTY = "";
+
+    public static boolean isValueHaveEmpty(Map<String, String> map) {
+        if (map == null) {
+            return false;
+        }
+        for (String str : map.keySet()) {
+            if (isEmpty(str)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static SpannableString makeStyledString(Context context, String content, int style) {
+        SpannableString string = new SpannableString(content);
+        string.setSpan(new TextAppearanceSpan(context, style), 0, string.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+        return string;
+    }
 
     public static int toInt(String str) {
         try {
@@ -62,6 +83,13 @@ public final class StringUtil {
             return false;
         }
         return str1.equals(str2);
+    }
+
+    public static boolean equalsIgnoreCase(String str1, String str2) {
+        if (isBlank(str1) || isBlank(str2)) {
+            return false;
+        }
+        return str1.equalsIgnoreCase(str2);
     }
 
     public static boolean emptyOrNull(CharSequence s) {
@@ -132,16 +160,17 @@ public final class StringUtil {
             formatter.setMaximumFractionDigits(max);
         }
         String result = formatter.format(d);
-//        int lastIndex = result.lastIndexOf(".");
-//        if (lastIndex != -1 && result.substring(lastIndex + 1, result.length()).length() < max) {
-//            int num = result.substring(lastIndex + 1, result.length()).length();
-//            if (num < max) {
-//                for (int i = 0; i < max - num; i++) {
-//                    result += "0";
-//                }
-//            }
-//
-//        }
+        // int lastIndex = result.lastIndexOf(".");
+        // if (lastIndex != -1 && result.substring(lastIndex + 1,
+        // result.length()).length() < max) {
+        // int num = result.substring(lastIndex + 1, result.length()).length();
+        // if (num < max) {
+        // for (int i = 0; i < max - num; i++) {
+        // result += "0";
+        // }
+        // }
+        //
+        // }
 
         return result;
     }
@@ -190,15 +219,13 @@ public final class StringUtil {
     }
 
     /**
-     * 十进制码转16进制,前自动补齐
-     * 例：44 toHex 2c
-     * return 0000002c
+     * 十进制码转16进制,前自动补齐 例：44 toHex 2c return 0000002c
      *
      * @param vinPart
      * @return
      */
     public static String convertDecimalToHex(String vinPart, int bytes) {
-        //这里不允许有小数，如果带小数则去掉小数
+        // 这里不允许有小数，如果带小数则去掉小数
         Log.i("convertDecimalToHex", vinPart);
         if (vinPart.contains(".")) {
             vinPart = vinPart.split("\\.")[0];
@@ -232,8 +259,10 @@ public final class StringUtil {
     /**
      * 匹配字符串中符合正则的字符串列表
      *
-     * @param text       原字符串
-     * @param patternStr 正则表达式
+     * @param text
+     *            原字符串
+     * @param patternStr
+     *            正则表达式
      * @return
      */
     public static List<String> match(String text, String patternStr) {
@@ -283,9 +312,9 @@ public final class StringUtil {
             case "11":
                 value = "h";
                 break;
-//            case "12":
-//                value = "i";
-//                break;
+            // case "12":
+            // value = "i";
+            // break;
             case "12":
                 value = "j";
                 break;
@@ -331,15 +360,15 @@ public final class StringUtil {
             case "20":
                 value = " ";
                 break;
-//            case "21":
-//                value = "x";
-//                break;
-//            case "22":
-//                value = "y";
-//                break;
-//            case "23":
-//                value = "z";
-//                break;
+            // case "21":
+            // value = "x";
+            // break;
+            // case "22":
+            // value = "y";
+            // break;
+            // case "23":
+            // value = "z";
+            // break;
         }
         return value.toUpperCase();
     }
@@ -380,9 +409,9 @@ public final class StringUtil {
                 case "H":
                     value = "11";
                     break;
-//                case "I":
-//                    value = "12";
-//                    break;
+                // case "I":
+                // value = "12";
+                // break;
                 case "J":
                     value = "12";
                     break;
@@ -398,15 +427,15 @@ public final class StringUtil {
                 case "N":
                     value = "16";
                     break;
-//                case "O":
-//                    value = "18";
-//                    break;
+                // case "O":
+                // value = "18";
+                // break;
                 case "P":
                     value = "17";
                     break;
-//                case "Q":
-//                    value = "1A";
-//                    break;
+                // case "Q":
+                // value = "1A";
+                // break;
                 case "R":
                     value = "18";
                     break;
@@ -419,9 +448,9 @@ public final class StringUtil {
                 case "U":
                     value = "1B";
                     break;
-//                case "V":
-//                    value = "1F";
-//                    break;
+                // case "V":
+                // value = "1F";
+                // break;
                 case "W":
                     value = "1C";
                     break;
@@ -515,8 +544,7 @@ public final class StringUtil {
             return EMPTY;
         }
 
-        bufSize *= ((array[startIndex] == null ? 16 : array[startIndex].toString().length())
-                + separator.length());
+        bufSize *= ((array[startIndex] == null ? 16 : array[startIndex].toString().length()) + separator.length());
 
         StringBuffer buf = new StringBuffer(bufSize);
 
@@ -534,7 +562,8 @@ public final class StringUtil {
     /**
      * Transform binary format.
      *
-     * @param num num.
+     * @param num
+     *            num.
      * @return temp result of method.
      */
     public static String transBinary(int num) {
@@ -615,7 +644,6 @@ public final class StringUtil {
         return str == null || str.length() <= 0;
     }
 
-
     /**
      * 判断是不是车牌号
      *
@@ -691,8 +719,10 @@ public final class StringUtil {
     }
 
     /**
-     * @param sourceStr 源字符串
-     * @param rgex      正则表达式
+     * @param sourceStr
+     *            源字符串
+     * @param rgex
+     *            正则表达式
      * @return
      */
     public static List<String> getSubStrings(String sourceStr, String rgex) {
@@ -708,8 +738,10 @@ public final class StringUtil {
     }
 
     /**
-     * @param sourceStr 源字符串
-     * @param rgex      正则表达式
+     * @param sourceStr
+     *            源字符串
+     * @param rgex
+     *            正则表达式
      * @return
      */
     public static String getSubString(String sourceStr, String rgex) {
@@ -736,7 +768,7 @@ public final class StringUtil {
     }
 
     public static String getIQAformatString(String number, String iqaFormat) {
-        //诸如这样的格式string{"8-1-7", "20-3-18", "5-1-3"，“0”}
+        // 诸如这样的格式string{"8-1-7", "20-3-18", "5-1-3"，“0”}
         String[] matchArray = iqaFormat.split(",");
         String matchIqaFormat = "-1";
         for (int k = 0; k < matchArray.length; k++) {
@@ -756,4 +788,85 @@ public final class StringUtil {
         number = number.substring(startIndex, endIndex);
         return number;
     }
+
+    public static boolean isAllNumber(String str) {
+        Pattern pattern = Pattern.compile("^-?\\d+(\\.\\d+)?$");
+        Matcher isNum = pattern.matcher(str);
+        return isNum.matches();
+    }
+
+    public static int searchByIndexOf(String cmd , String replace){
+        int leng = cmd.length();
+        cmd = cmd.replace(replace, "");
+        int len = cmd.length();
+        return (leng - len) / replace.length();
+    }
+
+    public static String calLength(String lentotal){
+        int tl = lentotal.length();
+        for (int i= tl ;i<4;i++) {
+            lentotal = "0"+ lentotal;
+        }
+        lentotal = lentotal.substring(2, 4) + lentotal.substring(0, 2);
+        return lentotal;
+    }
+
+    /**
+     * 要进行高低位转换的字符串
+     *
+     * @param section
+     *            16进制字符串
+     * @return
+     */
+    public static String changePosition(String section) {
+        if (section==null){
+            return "";
+        }
+        StringBuffer sb = new StringBuffer();
+        for (int i = 0; i < section.length() / 2; i++) {
+            String data=section.substring(i*2,(i+1)*2);
+            sb.insert(0,data);
+        }
+        return sb.toString();
+    }
+
+    /**
+     * 两位转ASCII码
+     *
+     * @param hexData
+     * @return
+     */
+    public static String convertHexToString(String hexData) {
+        if (hexData == null || hexData.equals("")) {
+            return null;
+        }
+        StringBuilder sb = new StringBuilder();
+        try {
+            for (int i = 0; i < hexData.length(); i = i + 2) {
+                String s = hexData.substring(i, i + 2);
+                if (s.equals("00")) {
+                    continue;
+                }
+                sb.append((char) Long.parseLong(s, 16));
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            System.out.println("转ASCII失败");
+        }
+        return sb.toString();
+    }
+
+    public static String getProtocol(String systemId){
+        switch (systemId){
+            case "SYSTEM_001456":
+                return "cummins";
+            case "SYSTEM_001717":
+                return "weiChaiC15";
+            default:
+                return "";
+
+        }
+    }
+
+
 }

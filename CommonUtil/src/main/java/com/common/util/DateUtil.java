@@ -302,4 +302,24 @@ public class DateUtil {
         return dateTrans;
     }
 
+    public static String getCurrentFormatTime() {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy年MM月dd日 HH:mm:ss");
+        Date date = new Date(System.currentTimeMillis());
+        String time = simpleDateFormat.format(date);
+        return time;
+    }
+
+    public static int getTimeByDate(String date) {
+        long timeInMillis = -1;
+        try {
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(new SimpleDateFormat("yyyy年MM月dd日 HH:mm:ss", Locale.getDefault()).parse(date));
+            timeInMillis = calendar.getTimeInMillis();
+            //android.util.Log.i("guangbing", "timeInMillis: "+timeInMillis);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return (int)timeInMillis;
+    }
+
 }

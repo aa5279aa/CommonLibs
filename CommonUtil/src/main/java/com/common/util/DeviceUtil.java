@@ -1,19 +1,30 @@
 package com.common.util;
 
+import android.Manifest;
+import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
+import android.os.Build;
 import android.os.Environment;
 import android.os.StatFs;
+import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.WindowManager;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * @author lxl
@@ -78,8 +89,13 @@ public class DeviceUtil {
         return new int[]{outMetrics.widthPixels, outMetrics.heightPixels};
     }
 
+
+    public static String getCurrentProcessName(Context cxt) {
+        return getProcessName(cxt, android.os.Process.myPid());
+    }
+
     /**
-     * 获取当前进程名
+     * 获取指定进程名
      *
      * @param cxt
      * @param pid
@@ -202,6 +218,79 @@ public class DeviceUtil {
             e1.printStackTrace();
         }
         return mStatusBarHeight;
+    }
+
+    public static boolean isMIUI() {
+        return !TextUtils.isEmpty(getSystemProperty("ro.miui.ui.version.name"));
+    }
+
+    public static boolean isFlyme() {
+        try {
+            final Method method = Build.class.getMethod("hasSmartBar");
+            return method != null;
+        } catch (final Exception e) {
+            return false;
+        }
+    }
+
+    private static String getSystemProperty(String propName) {
+        String line;
+        BufferedReader input = null;
+        try {
+            Process p = Runtime.getRuntime().exec("getprop " + propName);
+            input = new BufferedReader(new InputStreamReader(p.getInputStream()), 1024);
+            line = input.readLine();
+            input.close();
+        } catch (IOException ex) {
+            return null;
+        } finally {
+            if (input != null) {
+                try {
+                    input.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return line;
+    }
+
+    public static boolean isPad(Context context) {
+        return (context.getResources().getConfiguration().screenLayout
+                & Configuration.SCREENLAYOUT_SIZE_MASK)
+                >= Configuration.SCREENLAYOUT_SIZE_LARGE;
+    }
+
+    public static String getDEVICEMODEL() {
+        return Build.MODEL;
+    }
+
+    public static boolean checkPermissionStorage(Context context) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (context.checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+                return true;
+            }
+            return false;
+        }
+        return true;
+    }
+
+    public static String getLanguage(Context context) {
+        String language = Locale.getDefault().toString();
+        return language;
+    }
+
+    public static String getLocalMacAddressFromWifiInfo(Context context) {
+        WifiManager wifi = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
+        WifiInfo winfo = wifi.getConnectionInfo();
+        String mac = winfo.getMacAddress();
+        return mac;
+    }
+
+    public static int getDisplayDensity(Activity context) {
+        DisplayMetrics metric = new DisplayMetrics();
+        context.getWindowManager().getDefaultDisplay().getMetrics(metric);
+        return metric.densityDpi;
     }
 
 }

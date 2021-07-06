@@ -1,24 +1,13 @@
 package com.common.util;
 
+import android.text.TextUtils;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.Map;
 
-/**
- * 反射工具类
- */
-public class ReflectionUtil {
+public class ReflectUtil {
 
-    public static void reflectGetFiled(Map<String, Object> map, Object journal) throws Exception {
-        Class cls = journal.getClass();
-        Field[] fields = cls.getDeclaredFields();
-        for (int i = 0; i < fields.length; i++) {
-            Field f = fields[i];
-            f.setAccessible(true);
-            map.put(f.getName(), f.get(journal));
-        }
-    }
 
     /**
      * 获取私有成员变量的值
@@ -27,7 +16,7 @@ public class ReflectionUtil {
      * @param filedName
      * @return
      */
-    public static Object getPrivateField(Object instance, Class c, String filedName) throws NoSuchFieldException, IllegalAccessException {
+    public static Object getPrivateField(Object instance,Class c, String filedName) throws NoSuchFieldException, IllegalAccessException {
         Field field = c.getDeclaredField(filedName);
         field.setAccessible(true);
         return field.get(instance);
@@ -73,16 +62,29 @@ public class ReflectionUtil {
      * @throws InvocationTargetException
      * @throws IllegalAccessException
      */
-    public static Object invokePrivateMethod(Object instance, String methodName, Class[] classes, String objects) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+    public static Object invokePrivateMethod(Object instance, String methodName, Class[] classes, Object[] objects) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         Method method = instance.getClass().getDeclaredMethod(methodName, classes);
         method.setAccessible(true);
         return method.invoke(instance, objects);
     }
 
-    public static Object invokePrivateMethod(Object instance, String methodName) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
-        Method method = instance.getClass().getDeclaredMethod(methodName);
-        method.setAccessible(true);
-        return method.invoke(instance);
+    public static Object getFieldValue(Object obj, String fieldName) {
+        if (obj == null || TextUtils.isEmpty(fieldName)) {
+            return null;
+        }
+
+        Class<?> clazz = obj.getClass();
+        while (clazz != Object.class) {
+            try {
+                Field field = clazz.getDeclaredField(fieldName);
+                field.setAccessible(true);
+                return field.get(obj);
+            } catch (Exception e) {
+            }
+            clazz = clazz.getSuperclass();
+        }
+        return null;
     }
 
 }
+

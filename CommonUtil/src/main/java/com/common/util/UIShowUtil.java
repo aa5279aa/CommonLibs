@@ -14,14 +14,6 @@ import android.widget.Toast;
  */
 public class UIShowUtil {
 
-    public static <T extends View> T requestView(View convertView, int id) {
-        View view = null;
-        if (convertView != null) {
-            view = convertView.findViewById(id);
-        }
-        return (T) view;
-    }
-
     public static void showText(TextView textView, CharSequence content) {
         if (textView == null) {
             return;
